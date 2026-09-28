@@ -54,6 +54,15 @@
     const email = document.getElementById("sacEmail");
     [location, type, message].forEach((el) => { const invalid = !el.value.trim(); setInvalid(el, invalid); if (invalid) valid = false; });
     const emailInvalid = !isValidEmail(email.value); setInvalid(email, emailInvalid); if (emailInvalid) valid = false;
+
+    const phone = document.getElementById("sacPhone");
+    const whatsapp = document.getElementById("sacWhatsApp");
+    const phoneDigits = phone.value.replace(/\D/g, "");
+    const phoneInvalid = Boolean(phoneDigits) && (phoneDigits.length < 10 || phoneDigits.length > 13);
+    const whatsappWithoutPhone = whatsapp.checked && !phoneDigits;
+    setInvalid(phone, phoneInvalid || whatsappWithoutPhone);
+    if (phoneInvalid || whatsappWithoutPhone) valid = false;
+
     const consent = document.getElementById("sacConsent");
     consent.closest(".sac-checkbox-field")?.classList.toggle("is-invalid", !consent.checked);
     if (!consent.checked) valid = false;
@@ -88,7 +97,9 @@
       p_message: document.getElementById("sacMessage").value.trim(),
       p_customer_name: document.getElementById("sacName").value.trim() || null,
       p_customer_email: document.getElementById("sacEmail").value.trim(),
-      p_wants_reply: document.getElementById("sacReply").checked
+      p_wants_reply: document.getElementById("sacReply").checked,
+      p_customer_phone: document.getElementById("sacPhone").value.trim() || null,
+      p_whatsapp_contact: document.getElementById("sacWhatsApp").checked
     });
 
     submitButton.disabled = false;

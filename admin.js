@@ -12,6 +12,7 @@
   const workspace = document.getElementById("adminWorkspace");
   const ticketList = document.getElementById("ticketList");
   const ticketContent = document.getElementById("ticketContent");
+  const ticketDetail = document.getElementById("ticketDetail");
   const emptyState = document.getElementById("ticketEmptyState");
   const searchInput = document.getElementById("ticketSearch");
   const statusFilter = document.getElementById("statusFilter");
@@ -41,6 +42,20 @@
     : "Não informada";
 
   const esc = (v) => String(v ?? "").replace(/[&<>'"]/g, (c) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#39;", '"':"&quot;" }[c]));
+
+  const phoneDigits = (value) => String(value || "").replace(/\D/g, "");
+  const formatPhone = (value) => {
+    const d = phoneDigits(value);
+    const local = d.startsWith("55") && (d.length === 12 || d.length === 13) ? d.slice(2) : d;
+    if (local.length === 11) return `(${local.slice(0,2)}) ${local.slice(2,7)}-${local.slice(7)}`;
+    if (local.length === 10) return `(${local.slice(0,2)}) ${local.slice(2,6)}-${local.slice(6)}`;
+    return value || "Não informado";
+  };
+  const whatsappNumber = (value) => {
+    const d = phoneDigits(value);
+    if (!d) return "";
+    return d.length <= 11 ? `55${d}` : d;
+  };
 
   async function isStaff() {
     const { data, error } = await db.rpc("is_sac_staff");
@@ -182,12 +197,30 @@
 
     emptyState.hidden = true;
     ticketContent.hidden = false;
+    if (ticketDetail) ticketDetail.scrollTop = 0;
 
     document.getElementById("detailProtocol").textContent = ticket.protocol;
     document.getElementById("detailCategory").textContent = ticket.category;
     document.getElementById("detailLocation").textContent = ticket.location;
     document.getElementById("detailName").textContent = ticket.customer_name || "Não informado";
     document.getElementById("detailEmail").textContent = ticket.customer_email;
+
+    const phone = ticket.customer_phone || "";
+    const phoneEl = document.getElementById("detailPhone");
+    const whatsappLink = document.getElementById("detailWhatsAppLink");
+    const whatsappNote = document.getElementById("detailWhatsAppNote");
+    phoneEl.textContent = phone ? formatPhone(phone) : "Não informado";
+    if (phone && ticket.whatsapp_contact) {
+      const waText = encodeURIComponent(`Olá! Aqui é do SAC da Safári Diversão. Estamos entrando em contato sobre o protocolo ${ticket.protocol}.`);
+      whatsappLink.href = `https://wa.me/${whatsappNumber(phone)}?text=${waText}`;
+      whatsappLink.hidden = false;
+      whatsappNote.textContent = "Cliente autorizou contato por WhatsApp.";
+    } else {
+      whatsappLink.hidden = true;
+      whatsappLink.removeAttribute("href");
+      whatsappNote.textContent = phone ? "Cliente não marcou autorização para contato por WhatsApp." : "";
+    }
+
     document.getElementById("detailVisitDate").textContent = fmt(ticket.visit_date);
     document.getElementById("detailCreated").textContent = fmt(ticket.created_at, true);
     document.getElementById("detailOriginalDate").textContent = fmt(ticket.created_at, true);
