@@ -3333,3 +3333,43 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .safari-page-transition { display: none !important; }
 }
+
+/* =========================================================
+   V37 • MENU MOBILE SÓLIDO
+   Corrige transparência do menu no celular sem alterar desktop.
+========================================================= */
+@media (max-width: 980px) {
+  .main-nav {
+    width: 100vw;
+    max-width: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: linear-gradient(180deg, #052f49 0%, #07577e 58%, #087e91 100%);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .main-nav a:not(.nav-cta) {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #0a5477;
+  }
+
+  .main-nav a:not(.nav-cta):hover,
+  .main-nav a:not(.nav-cta):focus-visible {
+    background: #0c668d;
+  }
+
+  .main-nav .nav-cta {
+    color: var(--safari-deep) !important;
+    background: linear-gradient(135deg, var(--safari-yellow), var(--safari-orange));
+  }
+
+  .menu-toggle,
+  .menu-toggle.active {
+    background: #0a5d83;
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 8px 22px rgba(2, 29, 46, 0.22);
+  }
+}
