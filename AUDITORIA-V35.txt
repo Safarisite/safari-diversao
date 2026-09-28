@@ -1,0 +1,20 @@
+SAFÁRI DIVERSÃO — AUDITORIA V35
+
+Alteração desta versão
+- A animação Bigtron + Bigtrix continua exclusiva aos cliques nas abas A Empresa e SAC.
+- O sentido foi invertido: os personagens agora entram pela DIREITA e atravessam a tela em direção à ESQUERDA.
+- A direção foi ajustada em desktop e mobile.
+- O rastro visual também acompanha o novo sentido.
+- As artes originais dos personagens não foram espelhadas, redesenhadas ou modificadas.
+
+Validações executadas
+- JavaScript: todos os arquivos .js passaram no node --check.
+- HTML: 5 páginas verificadas sem IDs duplicados.
+- Referências locais: nenhum href/src local quebrado nas páginas HTML.
+- Imagens: 35 arquivos de imagem verificados e íntegros.
+- Filtro da animação confirmado apenas para empresa.html e sac.html.
+- Direção desktop confirmada no CSS: início fora da tela à direita e saída pela esquerda.
+- Direção mobile confirmada no CSS: início fora da tela à direita e saída pela esquerda.
+
+Observação
+- V32, V33 e V34 permanecem versões separadas; a V35 não substitui fisicamente os pacotes anteriores.

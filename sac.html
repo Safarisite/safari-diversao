@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="SAC Safári Diversão — registre e acompanhe elogios, sugestões ou reclamações pelo próprio site." name="description"/>
+<meta content="#07547a" name="theme-color"/>
+<title>SAC | Safári Diversão</title>
+<link href="assets/brand/logo-safari.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="sac.css" rel="stylesheet"/>
+<script defer src="script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase-config.js"></script>
+<script defer src="sac.js"></script>
+</head>
+<body class="sac-page">
+<header class="site-header" id="inicio">
+  <div class="container header-shell">
+    <a aria-label="Safári Diversão — início" class="brand" href="index.html"><img alt="Safári Diversão" height="98" src="assets/brand/logo-safari.png" width="180"/><span class="brand-fallback">Safári <small>diversão</small></span></a>
+    <button aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button"><span></span><span></span><span></span></button>
+    <nav aria-label="Menu principal" class="main-nav">
+<a href="#inicio">Início</a>
+<a href="index.html#solucoes">Soluções</a>
+<a href="index.html#portfolio">Portfólio</a>
+<a href="index.html#projetos">Projetos</a>
+<a href="galeria.html">Galeria</a>
+<a href="empresa.html">A Empresa</a>
+<a href="index.html#parcerias">Parcerias</a>
+<a aria-current="page" class="nav-current" href="sac.html">SAC</a>
+<a class="nav-cta" href="index.html#contato">Contato</a>
+</nav>
+  </div>
+</header>
+<main>
+<section class="sac-hero">
+  <div aria-hidden="true" class="sac-hero-shape sac-hero-shape-a"></div><div aria-hidden="true" class="sac-hero-shape sac-hero-shape-b"></div>
+  <div class="container sac-hero-grid">
+    <div class="sac-hero-copy">
+      <span class="sac-pill">SAC SAFÁRI • CANAL OFICIAL</span>
+      <h1>Sua experiência merece<br/><em>ser ouvida e acompanhada.</em></h1>
+      <p>Registre elogios, sugestões ou reclamações diretamente no nosso sistema. O atendimento fica armazenado com protocolo e o retorno pode ser acompanhado pelo próprio site.</p>
+      <div class="sac-hero-badges"><span>🔒 Registro interno</span><span>🎫 Protocolo individual</span><span>💬 Resposta pelo site</span></div>
+    </div>
+    <div class="sac-hero-card" aria-hidden="true">
+      <span class="sac-chat-bubble sac-chat-bubble-a">Quero deixar uma sugestão 💡</span>
+      <span class="sac-chat-bubble sac-chat-bubble-b">Preciso registrar uma reclamação 💬</span>
+      <span class="sac-chat-bubble sac-chat-bubble-c">Recebi uma resposta ✅</span>
+      <div class="sac-phone-illustration"><span class="sac-phone-logo"><img alt="" src="assets/brand/logo-safari.png"/></span><b>SAC Safári</b><small>escuta, protocolo e acompanhamento</small><div class="sac-phone-line"></div><div class="sac-phone-line short"></div><div class="sac-phone-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sac-choice-section">
+  <div class="container sac-choice-grid">
+    <a class="sac-choice-card active" href="#novo-chamado"><span>✍️</span><div><strong>Novo registro</strong><small>Conte como foi sua experiência</small></div></a>
+    <a class="sac-choice-card" href="#acompanhar"><span>🔎</span><div><strong>Acompanhar protocolo</strong><small>Veja respostas e andamento</small></div></a>
+  </div>
+</section>
+
+<section class="sac-form-section" id="novo-chamado">
+  <div class="container sac-layout">
+    <aside class="sac-side-card">
+      <span class="sac-side-icon">💛</span><h2>Queremos saber de verdade.</h2>
+      <p>Uma boa experiência merece ser reconhecida. Uma experiência ruim precisa ser entendida e tratada.</p>
+      <div class="sac-side-list">
+        <div><span>1</span><p><b>Registre</b><small>Conte o que aconteceu e informe um e-mail válido.</small></p></div>
+        <div><span>2</span><p><b>Guarde o protocolo</b><small>O sistema também gera uma chave privada de acesso.</small></p></div>
+        <div><span>3</span><p><b>Acompanhe</b><small>Consulte o andamento e as respostas diretamente aqui.</small></p></div>
+      </div>
+      <p class="sac-urgent-note"><b>Durante a visita?</b> Se houver uma situação que precise de atenção imediata, procure também a equipe responsável no local.</p>
+    </aside>
+
+    <div class="sac-form-card">
+      <div class="sac-form-head"><span>Registro de experiência</span><h2>Como foi sua visita?</h2><p>Seu relato será armazenado no sistema interno do SAC.</p></div>
+      <div class="sac-system-warning" id="sacSystemWarning" hidden>O SAC está temporariamente indisponível. Tente novamente mais tarde.</div>
+      <form id="sacForm" novalidate>
+        <input class="sac-honeypot" tabindex="-1" autocomplete="off" name="company_website" id="companyWebsite" type="text" aria-hidden="true"/>
+        <fieldset class="sac-rating-fieldset"><legend>1. Sua avaliação geral <b>*</b></legend>
+          <div class="sac-rating-options" id="sacRatingOptions">
+            <label><input required type="radio" name="rating" value="1"/><span class="rating-face">😞</span><strong>Péssima</strong><small>1 estrela</small></label>
+            <label><input type="radio" name="rating" value="2"/><span class="rating-face">🙁</span><strong>Ruim</strong><small>2 estrelas</small></label>
+            <label><input type="radio" name="rating" value="3"/><span class="rating-face">😐</span><strong>Regular</strong><small>3 estrelas</small></label>
+            <label><input type="radio" name="rating" value="4"/><span class="rating-face">🙂</span><strong>Boa</strong><small>4 estrelas</small></label>
+            <label><input type="radio" name="rating" value="5"/><span class="rating-face">🤩</span><strong>Excelente</strong><small>5 estrelas</small></label>
+          </div><span class="sac-field-error" id="ratingError">Escolha uma avaliação para continuar.</span>
+        </fieldset>
+
+        <div class="sac-form-grid">
+          <label class="sac-field sac-field-full"><span>2. Qual parque, atração ou shopping você visitou? <b>*</b></span><input id="sacLocation" required maxlength="160" placeholder="Ex.: nome da atração / nome do shopping" type="text"/><small class="sac-field-error">Informe onde aconteceu sua experiência.</small></label>
+          <label class="sac-field"><span>Data da visita</span><input id="sacDate" type="date"/></label>
+          <label class="sac-field"><span>Tipo de mensagem <b>*</b></span><select id="sacType" required><option value="">Selecione</option><option>Elogio</option><option>Sugestão</option><option>Reclamação</option><option>Atendimento</option><option>Segurança</option><option>Limpeza e organização</option><option>Brinquedos e atrações</option><option>Outro</option></select><small class="sac-field-error">Selecione o assunto.</small></label>
+          <label class="sac-field sac-field-full"><span>3. Conte o que aconteceu <b>*</b></span><textarea id="sacMessage" required maxlength="3000" rows="7" placeholder="Conte os pontos positivos, o que não foi legal ou o que você acha que podemos melhorar..."></textarea><div class="sac-textarea-meta"><small>Evite inserir documentos, senhas ou dados sensíveis.</small><small><span id="sacCharCount">0</span>/3000</small></div><small class="sac-field-error">Escreva seu relato.</small></label>
+          <label class="sac-field"><span>Seu nome <small>(opcional)</small></span><input id="sacName" maxlength="100" placeholder="Como podemos chamar você?" type="text"/></label>
+          <label class="sac-field"><span>Seu e-mail <b>*</b></span><input id="sacEmail" required maxlength="180" autocomplete="email" placeholder="voce@exemplo.com" type="email"/><small class="sac-field-error">Informe um e-mail válido.</small></label>
+          <label class="sac-checkbox-field sac-field-full"><input id="sacReply" type="checkbox" checked/><span><b>Quero acompanhar o retorno do SAC</b><small>As respostas ficarão disponíveis na consulta do seu protocolo.</small></span></label>
+          <label class="sac-checkbox-field sac-field-full"><input id="sacConsent" type="checkbox" required/><span><b>Autorizo o uso desses dados para tratar esta solicitação. *</b><small>Os dados serão usados para atendimento, acompanhamento e resposta deste registro.</small></span></label>
+        </div>
+        <div class="sac-submit-row"><button class="sac-submit-button" id="sacSubmitButton" type="submit">Registrar no SAC <span>→</span></button></div>
+      </form>
+      <div class="sac-result" id="sacResult" hidden aria-live="polite"><span class="sac-result-icon">✓</span><h3>Registro recebido!</h3><p>Guarde os dois dados abaixo. Eles serão necessários para acompanhar o atendimento.</p><div class="sac-result-codes"><label>Protocolo<strong id="sacResultProtocol">—</strong></label><label>Chave de acesso<strong id="sacResultCode">—</strong></label></div><button id="sacCopyAccess" class="button button-blue" type="button">Copiar protocolo e chave</button><a class="sac-result-link" href="#acompanhar">Acompanhar agora →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sac-track-section" id="acompanhar">
+  <div class="container">
+    <div class="section-heading sac-track-heading"><span class="section-kicker">Acompanhe seu atendimento</span><h2>Consulte o protocolo e veja<br/><em>as respostas do SAC.</em></h2><p>Use o protocolo e a chave privada gerados quando você registrou a solicitação.</p></div>
+    <div class="sac-track-shell">
+      <form class="sac-lookup-form" id="sacLookupForm">
+        <label><span>Protocolo</span><input id="lookupProtocol" autocomplete="off" placeholder="SAF-20260831-ABC123" required/></label>
+        <label><span>Chave de acesso</span><input id="lookupCode" autocomplete="off" placeholder="Sua chave privada" required/></label>
+        <button class="button button-blue" type="submit">Consultar <span>→</span></button>
+      </form>
+      <div class="sac-lookup-message" id="sacLookupMessage" aria-live="polite"></div>
+      <article class="sac-ticket-view" id="sacTicketView" hidden>
+        <div class="sac-ticket-head"><div><small>Protocolo</small><strong id="ticketProtocol">—</strong></div><span class="sac-status" id="ticketStatus">Recebido</span></div>
+        <div class="sac-ticket-meta" id="ticketMeta"></div>
+        <div class="sac-original-message"><small>Seu relato inicial</small><p id="ticketOriginalMessage"></p></div>
+        <div class="sac-conversation"><h3>Histórico do atendimento</h3><div id="ticketMessages"></div></div>
+        <form class="sac-customer-reply" id="customerReplyForm"><label><span>Enviar complemento</span><textarea id="customerReplyBody" rows="4" maxlength="3000" placeholder="Se precisar, acrescente uma informação para o atendimento..."></textarea></label><button class="button button-blue" type="submit">Enviar complemento</button></form>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sac-values-section"><div class="container sac-values-grid"><article><span>👂</span><h3>Escutar</h3><p>Cada relato ajuda a entender o que o público realmente vive em nossas operações.</p></article><article><span>🛠️</span><h3>Tratar</h3><p>O chamado entra em um painel interno para análise e acompanhamento da equipe responsável.</p></article><article><span>✅</span><h3>Responder</h3><p>O retorno fica registrado no histórico do protocolo, com transparência para o cliente e para a empresa.</p></article></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><img alt="Safári Diversão" height="90" loading="lazy" src="assets/brand/logo-safari.png" width="165"/><p>Experiências de entretenimento infantil para shopping centers.</p></div><div class="footer-column"><h3>Navegação</h3><a href="index.html">Início</a><a href="index.html#solucoes">Soluções</a><a href="index.html#portfolio">Portfólio</a><a href="galeria.html">Galeria</a><a href="sac.html">SAC</a></div><div class="footer-column"><h3>Institucional</h3><a href="empresa.html">A Empresa</a><a href="index.html#parcerias">Parcerias</a><a href="index.html#contato">Contato</a></div><div class="footer-column footer-contact"><h3>SAC</h3><a href="mailto:sac@safaridiversao.com.br">sac@safaridiversao.com.br</a><a href="#acompanhar">Acompanhar protocolo</a><span>Campinas — SP</span></div></div><div class="container footer-bottom"><span class="creator-mark">By Gustavo Morino</span><span>© <span id="currentYear"></span> Safári Diversão.</span><span>Atendimento com registro, protocolo e acompanhamento.</span></div></footer>
+</body>
+</html>

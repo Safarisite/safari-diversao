@@ -1,0 +1,25 @@
+SAFÁRI DIVERSÃO — AUDITORIA V34
+================================
+
+Mudança desta versão
+- A animação Bigtron + Bigtrix foi mantida apenas para cliques nas abas "A Empresa" e "SAC" do menu principal.
+- Soluções, Portfólio, Projetos, Galeria, Parcerias, Contato e Início navegam normalmente, sem a animação.
+- A direção visual permanece da esquerda para a direita.
+- A V32 e a V33 não foram alteradas; esta é uma versão separada.
+
+Testes executados
+- Sintaxe JavaScript com node --check.
+- Verificação de IDs HTML duplicados.
+- Verificação de referências locais src/href para arquivos inexistentes.
+- Verificação de links internos/âncoras locais.
+- Confirmação de que o filtro da animação aceita apenas empresa.html e sac.html.
+- Confirmação dos keyframes: início fora da tela à esquerda e término fora da tela à direita.
+
+Resultado
+- Todos os arquivos .js passaram no node --check.
+- HTMLs verificados sem IDs duplicados.
+- Nenhuma referência local quebrada encontrada.
+- Nenhuma âncora local quebrada encontrada.
+- CSS com chaves balanceadas.
+- Filtro exclusivo empresa.html + sac.html confirmado.
+- Direção esquerda -> direita confirmada nos keyframes desktop e mobile.

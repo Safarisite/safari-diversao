@@ -1,0 +1,10 @@
+V32 — ajustes finais
+- Aba/página Bastidores removida da navegação pública e do pacote.
+- Todos os links para bastidores.html removidos ou redirecionados para Galeria/A Empresa.
+- Assistente atualizado para não apontar para página removida.
+- Link de personagens corrigido para a seção real #universo-safari na Home.
+- Marca discreta “By Gustavo Morino” adicionada ao rodapé das páginas públicas.
+- 5 arquivos JavaScript validados com node --check.
+- 5 páginas HTML verificadas: sem IDs duplicados, arquivos locais ou âncoras quebradas.
+- 5 folhas CSS validadas com parser CSS.
+- Marca aparece uma vez em cada página pública: Home, Galeria, A Empresa e SAC.

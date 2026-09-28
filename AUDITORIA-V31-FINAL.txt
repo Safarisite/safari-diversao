@@ -1,0 +1,39 @@
+SAFÁRI DIVERSÃO — AUDITORIA V31 FINAL
+
+CORREÇÕES VISUAIS
+- Cards de Bigtron, Bigtrix, Gelo e Lava reestruturados para separar fisicamente a área da arte e a área do nome.
+- Teste de geometria em Chromium, usando composição isolada desktop e mobile: 0 sobreposições em 4/4 cards nos dois formatos.
+- Capturas de validação visual inspecionadas em desktop e celular.
+- Galeria refeita em mosaico editorial responsivo, com alternância de cards largos e compactos.
+- Captura de validação da Galeria inspecionada visualmente.
+- Seção de 10 anos criada na página A Empresa com o logo enviado pelo usuário e layout responsivo.
+- Capturas da seção de 10 anos inspecionadas em desktop e celular.
+
+VALIDAÇÕES DE CÓDIGO
+- 5 arquivos JavaScript passaram em `node --check`.
+- 6 arquivos CSS analisados sem erros de parser.
+- 6 páginas HTML verificadas.
+- IDs duplicados: nenhum.
+- Arquivos locais/âncoras locais quebrados: nenhum.
+- Imagens sem atributo alt: nenhuma.
+- 35 imagens locais validadas como arquivos de imagem legíveis.
+- Referências CSS locais faltando: nenhuma.
+- Galeria: 13 fotos no topo+mosaico, 13 únicas.
+- Filtros da Galeria testados: filtro Sazonal exibe 2 cards.
+- Lightbox testado: abre, navega com seta e fecha com Escape.
+- Layout mobile do mosaico testado sem overflow horizontal.
+
+PERSONAGENS ORIGINAIS
+- 14 arquivos de Bigtron, Bigtrix, Gelo e Lava comparados por SHA-256 com os arquivos originais fornecidos.
+- Resultado: 14/14 idênticos byte a byte.
+- Nenhuma arte foi espelhada, redesenhada, comprimida ou modificada.
+
+CONTEÚDO/REFERÊNCIAS
+- Nenhum link para popit.html.
+- Nenhuma referência visível a WhatsApp.
+- Nenhuma referência visível à Galinha Pintadinha.
+- O Capitão Pop It permanece apenas quando necessário como projeto licenciado/case de portfólio.
+
+OBSERVAÇÃO DO SAC
+- supabase-config.js ainda contém placeholders de configuração.
+- O SAC visual funciona, mas armazenamento e autenticação reais dependem da conexão com o projeto Supabase.

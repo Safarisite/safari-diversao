@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#07547a" name="theme-color"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Painel SAC | Safári Diversão</title>
+<link href="assets/brand/logo-safari.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="admin.css" rel="stylesheet"/>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase-config.js"></script>
+<script defer src="admin.js"></script>
+</head>
+<body>
+<main class="admin-shell">
+  <section class="admin-login-card" id="loginView">
+    <img src="assets/brand/logo-safari.png" alt="Safári Diversão"/>
+    <span class="admin-kicker">PAINEL INTERNO • SAC</span>
+    <h1>Acesso interno</h1>
+    <p>Área restrita para leitura, acompanhamento e resposta dos registros enviados pelo SAC.</p>
+    <form id="loginForm">
+      <label><span>E-mail</span><input id="loginEmail" type="email" autocomplete="username" required/></label>
+      <label><span>Senha</span><input id="loginPassword" type="password" autocomplete="current-password" required/></label>
+      <button type="submit">Entrar no painel</button>
+      <p class="admin-form-message" id="loginMessage"></p>
+    </form>
+    <a class="admin-back-link" href="index.html">← Voltar ao site</a>
+  </section>
+
+  <section class="admin-dashboard" id="dashboardView" hidden>
+    <header class="admin-topbar">
+      <div class="admin-brand"><img src="assets/brand/logo-safari.png" alt="Safári Diversão"/><div><small>SAC interno</small><strong>Painel interno de atendimento</strong></div></div>
+      <div class="admin-user"><span id="adminUserEmail"></span><button id="logoutButton" type="button">Sair</button></div>
+    </header>
+
+    <div class="admin-overview">
+      <article><small>Total</small><strong id="countTotal">0</strong></article>
+      <article><small>Recebidos</small><strong id="countReceived">0</strong></article>
+      <article><small>Em análise</small><strong id="countAnalysis">0</strong></article>
+      <article><small>Aguardando</small><strong id="countWaiting">0</strong></article>
+      <article><small>Respondidos</small><strong id="countAnswered">0</strong></article>
+    </div>
+
+    <div class="admin-workspace">
+      <aside class="ticket-sidebar">
+        <div class="ticket-toolbar">
+          <input id="ticketSearch" type="search" placeholder="Buscar protocolo, local ou assunto..."/>
+          <select id="statusFilter"><option value="">Todos os status</option><option value="recebido">Recebido</option><option value="em_analise">Em análise</option><option value="aguardando_cliente">Aguardando cliente</option><option value="respondido">Respondido</option><option value="encerrado">Encerrado</option></select>
+          <button id="refreshTickets" type="button">Atualizar</button>
+        </div>
+        <div class="ticket-list" id="ticketList"><p class="ticket-list-empty">Carregando chamados...</p></div>
+      </aside>
+
+      <section class="ticket-detail" id="ticketDetail">
+        <div class="ticket-empty-state" id="ticketEmptyState"><span>💬</span><h2>Selecione um chamado</h2><p>Os detalhes e o histórico aparecerão aqui.</p></div>
+        <div id="ticketContent" hidden>
+          <div class="ticket-detail-head"><div><small id="detailProtocol">—</small><h2 id="detailCategory">Chamado</h2><p id="detailLocation"></p></div><select id="detailStatus"><option value="recebido">Recebido</option><option value="em_analise">Em análise</option><option value="aguardando_cliente">Aguardando cliente</option><option value="respondido">Respondido</option><option value="encerrado">Encerrado</option></select></div>
+          <div class="ticket-person-grid"><span><small>Nome</small><strong id="detailName">—</strong></span><span><small>E-mail</small><strong id="detailEmail">—</strong></span><span><small>Avaliação</small><strong id="detailRating">—</strong></span><span><small>Visita</small><strong id="detailVisitDate">—</strong></span><span><small>Registrado</small><strong id="detailCreated">—</strong></span></div>
+          <article class="ticket-original"><small>Relato inicial</small><p id="detailMessage"></p></article>
+          <div class="ticket-thread"><div class="ticket-thread-title"><h3>Histórico</h3><small>Cliente e equipe</small></div><div id="detailMessages"></div></div>
+          <form class="ticket-reply-form" id="staffReplyForm"><label><span>Responder pelo site</span><textarea id="staffReplyBody" maxlength="3000" rows="5" placeholder="Digite a resposta que ficará visível para o cliente no protocolo..."></textarea></label><div><select id="statusAfterReply"><option value="respondido">Marcar como respondido</option><option value="aguardando_cliente">Aguardar retorno do cliente</option><option value="em_analise">Manter em análise</option><option value="encerrado">Responder e encerrar</option></select><button type="submit">Enviar resposta</button></div><p id="replyMessage"></p></form>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+SAFÁRI DIVERSÃO — V36
+
+Supabase criado e conectado:
+- Projeto: safari-diversao
+- Região: sa-east-1 (São Paulo)
+- SAC: tabelas + RLS + RPCs configurados
+- Front-end: supabase-config.js preenchido com URL e publishable key pública
+
+Pendente para painel interno:
+- Criar pelo menos um usuário em Supabase Authentication e cadastrá-lo em public.sac_staff.
+
+Pendente para publicação GitHub:
+- A conexão GitHub atual está em modo leitura para safarisite2026-ops/safari-diversao (push=false).

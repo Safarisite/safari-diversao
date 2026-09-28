@@ -1,0 +1,16 @@
+V33 — TRANSIÇÃO BIGTRON + BIGTRIX
+
+Base preservada: V32 (não alterada).
+
+Alterações:
+- Nova transição nos links do menu principal.
+- Bigtron cruza a tela na frente e Bigtrix acompanha logo atrás.
+- Artes utilizadas: arquivos PNG originais já presentes no projeto.
+- Nenhuma alteração visual aplicada às artes dos personagens (sem espelhamento, redesenho ou rotação).
+- Funciona para navegação entre páginas e para âncoras como Soluções, Portfólio e Projetos.
+- No celular, a animação usa tamanhos menores.
+- prefers-reduced-motion desativa a animação automaticamente.
+- Corrigida referência textual antiga a “Bastidores” no fallback do Assistente Safári.
+
+Observação:
+- V32 permanece sendo a versão de retorno caso a transição V33 não seja aprovada.

@@ -1,0 +1,38 @@
+CONFIGURAÇÃO DO SAC INTERNO — PASSO A PASSO
+
+1) SUPABASE
+Crie um projeto gratuito em supabase.com.
+
+2) BANCO
+Abra SQL Editor > New query.
+Cole TODO o conteúdo de supabase-schema.sql e execute.
+
+3) CHAVES PÚBLICAS
+Abra Project Settings > API.
+Copie:
+- Project URL
+- anon / publishable key
+
+Abra supabase-config.js e substitua:
+COLE_AQUI_A_URL_DO_SUPABASE
+COLE_AQUI_A_CHAVE_ANON_PUBLICA
+
+NUNCA use service_role no site.
+
+4) USUÁRIO DO JURÍDICO
+Em Authentication > Users, crie o usuário com e-mail e senha.
+Depois volte ao SQL Editor e execute:
+
+insert into public.sac_staff(user_id, display_name)
+select id, 'SAC Safári' from auth.users
+where email = 'EMAIL_INTERNO_DO_SAC_AQUI'
+on conflict (user_id) do update set active = true;
+
+5) TESTE
+- Abra sac.html e registre um chamado teste.
+- Guarde protocolo + chave.
+- Abra admin.html e faça login com o usuário interno.
+- Responda o chamado.
+- Volte ao sac.html > Acompanhar protocolo e confirme a resposta.
+
+6) SÓ DEPOIS SUBA A V20 PARA O GITHUB PAGES.

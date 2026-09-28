@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Galeria de projetos da Safári Diversão — eventos itinerantes, temporadas, projetos licenciados e operações em shopping centers." name="description"/>
+<meta content="#07547a" name="theme-color"/>
+<title>Galeria de Projetos | Safári Diversão</title>
+<link href="assets/brand/logo-safari.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="galeria.css" rel="stylesheet"/>
+<script defer src="script.js"></script>
+<script defer src="galeria.js"></script>
+</head>
+<body class="gallery-page">
+<header class="site-header scrolled" id="inicio">
+<div class="container header-shell">
+<a aria-label="Safári Diversão — página inicial" class="brand" href="index.html"><img alt="Safári Diversão" height="98" src="assets/brand/logo-safari.png" width="180"/><span class="brand-fallback">Safári <small>diversão</small></span></a>
+<button aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Menu principal" class="main-nav">
+<a href="index.html">Início</a><a href="index.html#solucoes">Soluções</a><a href="index.html#portfolio">Portfólio</a><a href="index.html#projetos">Projetos</a><a aria-current="page" class="nav-current" href="galeria.html">Galeria</a><a href="empresa.html">A Empresa</a><a href="index.html#parcerias">Parcerias</a><a href="sac.html">SAC</a><a class="nav-cta" href="index.html#contato">Contato</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="gallery-hero animated-zone is-active" data-guide-message="Aqui cada projeto tem uma cara diferente — vem ver!">
+<div class="gallery-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="container gallery-hero-grid">
+<div class="gallery-hero-copy reveal visible">
+<span class="eyebrow">Projetos reais • temas diferentes • operação Safári ✦</span>
+<h1>Uma galeria com<br/><em>mais cor, mais variedade</em><br/>e mais histórias.</h1>
+<p>Eventos itinerantes, temporadas especiais, projetos licenciados e formatos que se adaptam a diferentes espaços de shopping. Aqui o foco é mostrar a variedade do portfólio sem transformar tudo no mesmo parque.</p>
+<div class="hero-actions"><a class="button button-yellow" href="#fotos">Explorar galeria <span>↓</span></a><a class="button button-glass" href="empresa.html">Conhecer a Safári</a></div>
+<div class="gallery-hero-pills"><span>🎪 Itinerantes</span><span>🎄 Sazonais</span><span>✨ Temáticos</span><span>🤝 Licenciados</span></div>
+</div>
+<div class="gallery-hero-showcase reveal visible" aria-label="Seleção de eventos itinerantes da Safári">
+<figure class="hero-shot hero-shot-main"><img src="assets/fotos/galeria/evento-colorido-amplo.webp" alt="Evento itinerante colorido em shopping center" fetchpriority="high"/><figcaption><b>Eventos itinerantes</b><span>formatos que mudam de tema, metragem e temporada</span></figcaption></figure>
+<figure class="hero-shot hero-shot-top"><img src="assets/fotos/galeria/noel-aereo-01.webp" alt="Circuito temático de Natal em shopping center"/></figure>
+<figure class="hero-shot hero-shot-bottom"><img src="assets/fotos/galeria/mar-tubarao.webp" alt="Evento itinerante com tema marinho"/></figure>
+<img class="gallery-hero-bigtron" src="assets/personagens/originais/bigtron-p3-original.png" alt="Bigtron"/>
+<span class="gallery-wow">Uau!</span>
+</div>
+</div>
+<div class="gallery-wave" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 1440 120"><path d="M0 65 C230 128 430 15 700 58 C980 104 1170 134 1440 58 L1440 120 L0 120Z"/></svg></div>
+</section>
+
+<section class="gallery-info-strip" aria-label="Como a Safári entrega cada projeto">
+<div class="container gallery-info-grid">
+<article><span>01</span><div><strong>Projeto</strong><small>tema, leitura do espaço e experiência</small></div></article>
+<article><span>02</span><div><strong>Implantação</strong><small>produção, logística e montagem</small></div></article>
+<article><span>03</span><div><strong>Operação</strong><small>equipe, rotina e acompanhamento</small></div></article>
+</div>
+</section>
+
+<section class="gallery-projects content-section" id="fotos">
+<div class="container">
+<div class="gallery-heading reveal">
+<div><span class="section-kicker">Galeria de projetos</span><h2>Uma seleção com<br/><em>vários tipos de experiência.</em></h2></div>
+<p>As fotos abaixo mostram formatos diferentes do portfólio. Projetos licenciados aparecem identificados como cases; os personagens da Safári continuam sendo apresentados separadamente como identidade própria da marca.</p>
+</div>
+<div class="gallery-view-note reveal"><span>✦</span><p>Cada quadro mostra um projeto diferente. Clique em qualquer foto para ampliar.</p></div>
+<div class="gallery-filter-bar reveal" role="group" aria-label="Filtrar galeria">
+<button class="gallery-filter is-active" data-filter="all" aria-pressed="true" type="button">Todos</button>
+<button class="gallery-filter" data-filter="tematico" aria-pressed="false" type="button">Temáticos</button>
+<button class="gallery-filter" data-filter="sazonal" aria-pressed="false" type="button">Sazonais</button>
+<button class="gallery-filter" data-filter="licenciado" aria-pressed="false" type="button">Licenciados</button>
+</div>
+<div class="gallery-grid" id="galleryGrid">
+<figure class="gallery-card gallery-card-wide reveal" data-category="licenciado"><button class="gallery-card-open" type="button" aria-label="Ampliar projeto licenciado em formato itinerante"><img src="assets/fotos/galeria/popit-aereo-01.webp" alt="Parque itinerante licenciado montado em shopping center" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>ITINERANTE • PROJETO LICENCIADO</small><strong>Grande formato em praça de eventos</strong><span>Uma operação de forte impacto visual, com diversas áreas de brincadeira e circulação integrada.</span></figcaption></figure>
+<figure class="gallery-card gallery-card-tall reveal" data-category="sazonal"><button class="gallery-card-open" type="button" aria-label="Ampliar Circuito Noel"><img src="assets/fotos/galeria/noel-frente.webp" alt="Circuito Noel com personagem cenográfico em shopping center" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>SAZONAL • NATAL</small><strong>Circuito Noel</strong><span>Temporadas especiais ganham ambientação própria e um visual que conversa com o calendário do shopping.</span></figcaption></figure>
+<figure class="gallery-card reveal" data-category="tematico"><button class="gallery-card-open" type="button" aria-label="Ampliar evento itinerante colorido"><img src="assets/fotos/galeria/evento-colorido-vertical.webp" alt="Evento itinerante colorido com piscina de bolinhas e infláveis" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>ITINERANTE</small><strong>Cor e variedade de atrações</strong><span>Formatos compactos também podem reunir piscina de bolinhas, circuito e elementos cenográficos.</span></figcaption></figure>
+
+<figure class="gallery-card gallery-card-wide reveal" data-category="tematico"><button class="gallery-card-open" type="button" aria-label="Ampliar parque com tema de aventura"><img src="assets/fotos/galeria/evento-vulcao.webp" alt="Parque itinerante com tema de aventura e elementos vulcânicos" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>TEMA DE AVENTURA</small><strong>Uma identidade visual completamente diferente</strong><span>Mudar o tema muda a percepção da praça, os pontos de foto e a experiência do público.</span></figcaption></figure>
+<figure class="gallery-card reveal" data-category="sazonal"><button class="gallery-card-open" type="button" aria-label="Ampliar Circuito Noel visto de cima"><img src="assets/fotos/galeria/noel-aereo-02.webp" alt="Circuito Noel visto de cima" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>SAZONAL</small><strong>Uma temporada, outra configuração</strong><span>O mesmo calendário pode receber formatos diferentes de acordo com o empreendimento.</span></figcaption></figure>
+<figure class="gallery-card reveal" data-category="licenciado"><button class="gallery-card-open" type="button" aria-label="Ampliar operação licenciada com público"><img src="assets/fotos/galeria/popit-publico.webp" alt="Projeto licenciado em funcionamento com público" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>PROJETO LICENCIADO</small><strong>Experiência em operação</strong><span>Além da cenografia, a operação precisa funcionar bem com fluxo, atendimento e permanência das famílias.</span></figcaption></figure>
+<figure class="gallery-card gallery-card-tall reveal" data-category="tematico"><button class="gallery-card-open" type="button" aria-label="Ampliar evento temático com coelho cenográfico"><img src="assets/fotos/galeria/evento-coelho.webp" alt="Evento temático com coelho cenográfico e piscina de bolinhas" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>EVENTO TEMÁTICO</small><strong>Cenografia como ponto de encontro</strong><span>Elementos grandes ajudam a criar reconhecimento imediato e pontos fortes para fotos.</span></figcaption></figure>
+
+<figure class="gallery-card gallery-card-wide reveal" data-category="licenciado"><button class="gallery-card-open" type="button" aria-label="Ampliar grande operação licenciada"><img src="assets/fotos/galeria/popit-aereo-02.webp" alt="Grande operação licenciada vista de cima" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>ITINERANTE • PROJETO LICENCIADO</small><strong>Escala e múltiplas atrações</strong><span>Uma visão geral mostra como circuitos, infláveis e áreas de permanência podem funcionar juntos.</span></figcaption></figure>
+
+<figure class="gallery-card reveal" data-category="licenciado"><button class="gallery-card-open" type="button" aria-label="Ampliar projeto licenciado colorido"><img src="assets/fotos/galeria/popit-colorido.webp" alt="Projeto licenciado colorido em shopping center" loading="lazy"/><span class="zoom-mark">＋</span></button><figcaption><small>PROJETO LICENCIADO</small><strong>Formato compacto e intenso</strong><span>Mesmo em áreas menores, a combinação de altura, cor e atividades cria presença.</span></figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="gallery-characters content-section animated-zone" data-guide-message="Bigtron, Bigtrix, Gelo e Lava fazem parte da identidade autoral da Safári!">
+<div class="container gallery-characters-shell reveal">
+<div class="gallery-characters-copy"><span class="section-kicker">Identidade Safári</span><h2>Projetos mudam.<br/><em>A nossa identidade continua viva.</em></h2><p>Bigtron, Bigtrix, Gelo e Lava fazem parte do universo autoral da Safári. As artes abaixo são utilizadas exatamente nas características originais fornecidas pela marca.</p><a class="button button-blue" href="empresa.html">Conhecer a empresa <span>→</span></a></div>
+<div class="gallery-characters-lineup" aria-label="Personagens autorais da Safári"><img src="assets/personagens/originais/bigtron-p1-original.png" alt="Bigtron" loading="lazy" decoding="async"/><img src="assets/personagens/originais/bigtrix-p3-original.png" alt="Bigtrix" loading="lazy" decoding="async"/><img src="assets/personagens/originais/gelo-p1-original.png" alt="Gelo" loading="lazy" decoding="async"/><img src="assets/personagens/originais/lava-p1-original.png" alt="Lava" loading="lazy" decoding="async"/></div>
+</div>
+</section>
+
+<section class="gallery-cta content-section">
+<div class="container gallery-cta-shell reveal"><div><span class="section-kicker">Muito além da foto pronta</span><h2>Quer conhecer mais<br/><em>sobre a Safári?</em></h2><p>Criação, produção, logística, montagem e operação fazem parte da história por trás de cada parque.</p><div class="gallery-cta-actions"><a class="button button-yellow" href="empresa.html">Conhecer A Empresa <span>→</span></a><a class="button button-glass" href="index.html#portfolio">Ver portfólio</a></div></div><img src="assets/personagens/originais/bigtrix-p2-original.png" alt="Bigtrix" class="gallery-cta-bigtrix" loading="lazy" decoding="async"/></div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><img alt="Safári Diversão" height="98" loading="lazy" src="assets/brand/logo-safari.png" width="180"/><p>Eventos itinerantes, parques e operações de entretenimento infantil desenvolvidas para shopping centers.</p></div><div class="footer-column"><h3>Navegação</h3><a href="index.html">Início</a><a href="index.html#solucoes">Soluções</a><a href="index.html#portfolio">Portfólio</a><a href="index.html#projetos">Projetos</a></div><div class="footer-column"><h3>Safári</h3><a href="galeria.html">Galeria de fotos</a><a href="index.html#parcerias">Parcerias</a><a href="empresa.html">A Empresa</a><a href="sac.html">SAC</a></div><div class="footer-column footer-contact"><h3>Contato</h3><a href="mailto:sac@safaridiversao.com.br">sac@safaridiversao.com.br</a><span>Campinas — SP</span><div class="socials"><a aria-label="Instagram" href="https://www.instagram.com/safaridiversao/" rel="noopener" target="_blank">IG</a><a aria-label="Facebook" href="https://www.facebook.com/safaridiversao/" rel="noopener" target="_blank">FB</a><a aria-label="LinkedIn" href="https://br.linkedin.com/company/saf%C3%A1ridivers%C3%A3o" rel="noopener" target="_blank">IN</a></div></div></div><div class="container footer-bottom"><span class="creator-mark">By Gustavo Morino</span><span>© <span id="currentYear"></span> Safári Diversão. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+
+<div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visualização ampliada da galeria"><button class="gallery-lightbox-close" type="button" aria-label="Fechar imagem">×</button><button class="gallery-lightbox-nav gallery-lightbox-prev" type="button" aria-label="Imagem anterior">‹</button><figure><img id="galleryLightboxImage" src="" alt=""/><figcaption id="galleryLightboxCaption"></figcaption></figure><button class="gallery-lightbox-nav gallery-lightbox-next" type="button" aria-label="Próxima imagem">›</button></div>
+
+<aside aria-label="Bigtron acompanhando a galeria" class="popit-guide" id="popitGuide"><button aria-label="Ocultar Bigtron" class="popit-guide-close" id="popitGuideClose" type="button">×</button><div aria-live="polite" class="popit-guide-bubble"><strong>Oi! Eu sou o Bigtron!</strong><span id="popitGuideMessage">Tem muita coisa diferente para conhecer por aqui.</span></div><button aria-label="Ir para a próxima parte da galeria" class="popit-guide-character" id="popitGuideCharacter" title="Clique para continuar" type="button"><span aria-hidden="true" class="popit-guide-glow"></span><span aria-hidden="true" class="popit-guide-star star-one">★</span><span aria-hidden="true" class="popit-guide-star star-two">✦</span><span aria-hidden="true" class="popit-guide-star star-three">●</span><img alt="Bigtron" src="assets/personagens/originais/bigtron-p1-original.png"/></button></aside>
+<button aria-label="Mostrar Bigtron" class="popit-guide-reopen" id="popitGuideReopen" type="button"><span>★</span> Bigtron</button>
+<button aria-controls="safariAssistant" aria-expanded="false" aria-label="Abrir assistente da Safári" class="safari-assistant-launcher safari-assistant-launcher-bigtron" id="safariAssistantLauncher" type="button"><span class="safari-assistant-character"><img src="assets/personagens/originais/bigtron-p1-original.png" alt=""/></span><span><small>Posso ajudar?</small><strong>Bigtron • Assistente Safári</strong></span></button>
+<section aria-hidden="true" aria-label="Assistente automático da Safári Diversão" class="safari-assistant" id="safariAssistant"><div class="safari-assistant-head"><div class="safari-assistant-identity"><span class="safari-assistant-avatar safari-assistant-avatar-character"><img alt="Bigtron" src="assets/personagens/originais/bigtron-p1-original.png"/></span><div><strong>Bigtron • Assistente Safári</strong><small><span class="assistant-status-dot"></span> online</small></div></div><button aria-label="Fechar assistente" class="safari-assistant-close" id="safariAssistantClose" type="button">×</button></div><div aria-live="polite" class="safari-assistant-messages" id="safariAssistantMessages"><div class="assistant-message assistant-message-bot"><p>Olá! 👋 O que você quer conhecer sobre a Safári?</p><div class="assistant-quick-actions"><button data-assistant-prompt="Quero conhecer a empresa" type="button">🏢 A Empresa</button><button data-assistant-prompt="Quero ver o portfólio" type="button">🎪 Ver portfólio</button><button data-assistant-prompt="Quero conhecer as soluções" type="button">✨ Soluções</button><button data-assistant-prompt="Quero registrar minha experiência no SAC" type="button">💬 SAC</button></div></div></div><form class="safari-assistant-form" id="safariAssistantForm"><input autocomplete="off" id="safariAssistantInput" maxlength="240" placeholder="Digite o que você quer ver..." type="text"/><button aria-label="Enviar mensagem" type="submit">➜</button></form><div class="safari-assistant-foot">Atendimento automático • SAC com registro e acompanhamento pelo próprio site.</div></section>
+</body>
+</html>
