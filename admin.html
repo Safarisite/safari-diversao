@@ -21,7 +21,7 @@
     <img src="assets/brand/logo-safari.png" alt="Safári Diversão"/>
     <span class="admin-kicker">PAINEL INTERNO • SAC</span>
     <h1>Acesso interno</h1>
-    <p>Área restrita para leitura, acompanhamento e resposta dos registros enviados pelo SAC.</p>
+    <p>Área restrita para acompanhar e responder os registros enviados pelo SAC.</p>
     <form id="loginForm">
       <label><span>E-mail</span><input id="loginEmail" type="email" autocomplete="username" required/></label>
       <label><span>Senha</span><input id="loginPassword" type="password" autocomplete="current-password" required/></label>
@@ -33,36 +33,103 @@
 
   <section class="admin-dashboard" id="dashboardView" hidden>
     <header class="admin-topbar">
-      <div class="admin-brand"><img src="assets/brand/logo-safari.png" alt="Safári Diversão"/><div><small>SAC interno</small><strong>Painel interno de atendimento</strong></div></div>
+      <div class="admin-brand">
+        <img src="assets/brand/logo-safari.png" alt="Safári Diversão"/>
+        <div><small>SAC interno</small><strong>Central de atendimento</strong></div>
+      </div>
       <div class="admin-user"><span id="adminUserEmail"></span><button id="logoutButton" type="button">Sair</button></div>
     </header>
 
     <div class="admin-overview">
-      <article><small>Total</small><strong id="countTotal">0</strong></article>
-      <article><small>Recebidos</small><strong id="countReceived">0</strong></article>
-      <article><small>Em análise</small><strong id="countAnalysis">0</strong></article>
-      <article><small>Aguardando</small><strong id="countWaiting">0</strong></article>
-      <article><small>Respondidos</small><strong id="countAnswered">0</strong></article>
+      <article class="overview-total"><small>Total de chamados</small><strong id="countTotal">0</strong></article>
+      <article class="overview-new"><small>Novos</small><strong id="countReceived">0</strong></article>
+      <article class="overview-progress"><small>Em atendimento</small><strong id="countAnalysis">0</strong></article>
+      <article class="overview-wait"><small>Aguardando cliente</small><strong id="countWaiting">0</strong></article>
+      <article class="overview-done"><small>Respondidos</small><strong id="countAnswered">0</strong></article>
     </div>
 
-    <div class="admin-workspace">
+    <div class="admin-workspace" id="adminWorkspace">
       <aside class="ticket-sidebar">
+        <div class="queue-head">
+          <div><small>FILA DE ATENDIMENTO</small><h2>Solicitações recebidas</h2></div>
+          <span id="ticketListCount">0</span>
+        </div>
         <div class="ticket-toolbar">
-          <input id="ticketSearch" type="search" placeholder="Buscar protocolo, local ou assunto..."/>
-          <select id="statusFilter"><option value="">Todos os status</option><option value="recebido">Recebido</option><option value="em_analise">Em análise</option><option value="aguardando_cliente">Aguardando cliente</option><option value="respondido">Respondido</option><option value="encerrado">Encerrado</option></select>
-          <button id="refreshTickets" type="button">Atualizar</button>
+          <input id="ticketSearch" type="search" placeholder="Buscar protocolo, nome, local..."/>
+          <select id="statusFilter">
+            <option value="">Todos os status</option>
+            <option value="recebido">Novos</option>
+            <option value="em_analise">Em atendimento</option>
+            <option value="aguardando_cliente">Aguardando cliente</option>
+            <option value="respondido">Respondidos</option>
+            <option value="encerrado">Encerrados</option>
+          </select>
+          <button id="refreshTickets" type="button">↻ Atualizar fila</button>
         </div>
         <div class="ticket-list" id="ticketList"><p class="ticket-list-empty">Carregando chamados...</p></div>
       </aside>
 
       <section class="ticket-detail" id="ticketDetail">
-        <div class="ticket-empty-state" id="ticketEmptyState"><span>💬</span><h2>Selecione um chamado</h2><p>Os detalhes e o histórico aparecerão aqui.</p></div>
+        <div class="ticket-empty-state" id="ticketEmptyState">
+          <div class="empty-icon">💬</div>
+          <h2>Selecione uma solicitação</h2>
+          <p>Ao abrir um chamado, o relato do cliente, o histórico e a área de resposta aparecerão aqui.</p>
+        </div>
+
         <div id="ticketContent" hidden>
-          <div class="ticket-detail-head"><div><small id="detailProtocol">—</small><h2 id="detailCategory">Chamado</h2><p id="detailLocation"></p></div><select id="detailStatus"><option value="recebido">Recebido</option><option value="em_analise">Em análise</option><option value="aguardando_cliente">Aguardando cliente</option><option value="respondido">Respondido</option><option value="encerrado">Encerrado</option></select></div>
-          <div class="ticket-person-grid"><span><small>Nome</small><strong id="detailName">—</strong></span><span><small>E-mail</small><strong id="detailEmail">—</strong></span><span><small>Avaliação</small><strong id="detailRating">—</strong></span><span><small>Visita</small><strong id="detailVisitDate">—</strong></span><span><small>Registrado</small><strong id="detailCreated">—</strong></span></div>
-          <article class="ticket-original"><small>Relato inicial</small><p id="detailMessage"></p></article>
-          <div class="ticket-thread"><div class="ticket-thread-title"><h3>Histórico</h3><small>Cliente e equipe</small></div><div id="detailMessages"></div></div>
-          <form class="ticket-reply-form" id="staffReplyForm"><label><span>Responder pelo site</span><textarea id="staffReplyBody" maxlength="3000" rows="5" placeholder="Digite a resposta que ficará visível para o cliente no protocolo..."></textarea></label><div><select id="statusAfterReply"><option value="respondido">Marcar como respondido</option><option value="aguardando_cliente">Aguardar retorno do cliente</option><option value="em_analise">Manter em análise</option><option value="encerrado">Responder e encerrar</option></select><button type="submit">Enviar resposta</button></div><p id="replyMessage"></p></form>
+          <button class="ticket-back" id="ticketBackButton" type="button">← Voltar para a fila</button>
+
+          <div class="ticket-detail-head">
+            <div class="ticket-title-block">
+              <div class="ticket-title-meta"><span id="detailStatusPill" class="detail-status-pill">Novo</span><small id="detailProtocol">—</small></div>
+              <h2 id="detailCategory">Chamado</h2>
+              <p id="detailLocation"></p>
+            </div>
+            <div class="ticket-head-actions">
+              <button class="start-service-button" id="startServiceButton" type="button">Iniciar atendimento</button>
+              <label class="status-control"><span>Status</span><select id="detailStatus">
+                <option value="recebido">Novo</option>
+                <option value="em_analise">Em atendimento</option>
+                <option value="aguardando_cliente">Aguardando cliente</option>
+                <option value="respondido">Respondido</option>
+                <option value="encerrado">Encerrado</option>
+              </select></label>
+            </div>
+          </div>
+
+          <div class="ticket-person-grid">
+            <span><small>Cliente</small><strong id="detailName">—</strong></span>
+            <span><small>E-mail</small><strong id="detailEmail">—</strong></span>
+            <span><small>Avaliação</small><strong id="detailRating">—</strong></span>
+            <span><small>Data da visita</small><strong id="detailVisitDate">—</strong></span>
+            <span><small>Recebido em</small><strong id="detailCreated">—</strong></span>
+          </div>
+
+          <section class="conversation-card">
+            <div class="conversation-head"><div><small>CONVERSA</small><h3>Atendimento do protocolo</h3></div><span>Respostas ficam visíveis ao cliente</span></div>
+            <div class="ticket-thread" id="ticketThread">
+              <div class="admin-thread-message customer original-message">
+                <div><strong>Cliente • relato inicial</strong><small id="detailOriginalDate"></small></div>
+                <p id="detailMessage"></p>
+              </div>
+              <div id="detailMessages"></div>
+            </div>
+          </section>
+
+          <form class="ticket-reply-form" id="staffReplyForm">
+            <div class="reply-head"><div><small>RESPOSTA</small><h3>Responder ao cliente</h3></div><span>O cliente verá esta mensagem ao consultar o protocolo.</span></div>
+            <label class="reply-textarea"><span>Mensagem</span><textarea id="staffReplyBody" maxlength="3000" rows="6" placeholder="Digite aqui a resposta do SAC..."></textarea></label>
+            <div class="reply-actions">
+              <label><span>Depois de enviar</span><select id="statusAfterReply">
+                <option value="respondido">Marcar como respondido</option>
+                <option value="aguardando_cliente">Aguardar retorno do cliente</option>
+                <option value="em_analise">Manter em atendimento</option>
+                <option value="encerrado">Responder e encerrar</option>
+              </select></label>
+              <button type="submit">Enviar resposta ao cliente</button>
+            </div>
+            <p id="replyMessage"></p>
+          </form>
         </div>
       </section>
     </div>
